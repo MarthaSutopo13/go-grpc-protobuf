@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package proto;
+
+// Start of Customer Proto
+message Customer {
+    string id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string email = 4;
+}
+
+message CreateCustomerRequest {
+    Customer customer = 1;
+}
+
+message CreateCustomerResponse {
+    string code = 1;
+    string description = 2;
+    message createcusdata {
+        string cus = 1;
+    }
+    createcusdata data = 3;
+    Customer customer = 4;
+}
+
+service Customers {
+    rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerResponse);
+}
